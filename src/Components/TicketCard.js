@@ -15,25 +15,26 @@ const bull = (
     </Box>
   );
 
-  export default function BasicCard() {
+  export default function TicketCard({inputId, inputTitle, inputDesc, inputAccC}) {
     return (
       <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography variant="h5" component="div">
-            Ticket ID: 69312
+            {/* Ticket ID: 69312 */}
+            Ticket ID: {inputId}
           </Typography>
           <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            Front End
+            Title: {inputTitle}
           </Typography>
           <Typography variant="body2">
-            Accenptance Criteria:
-            <br />
-            {'FINISH FE'}
+            Description: {inputDesc}
+            {/* <br /> */}
+            {/* {'FINISH FE'} */}
           </Typography>
         </CardContent>
-        <CardActions>
+        {/* <CardActions>
           <Button size="small">Learn More</Button>
-        </CardActions>
+        </CardActions> */}
       </Card>
     );
   }
