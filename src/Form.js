@@ -9,9 +9,12 @@ function Form({props}) {
 	return (
 		<>
 		<form>
-			
+			<label for="fname">ID: </label>
 			<input type="text" id="fname" name="fname"/>
-			<label for="lname">Last name:</label>
+			
+		</form>
+		<form>
+			<label for="lname">Description: </label>
 			<input type="text" id="lname" name="lname"/>
 		</form>
 
