@@ -9,11 +9,26 @@ function App() {
   return (
     <>
       <ButtonAppBar></ButtonAppBar>
-      <TicketCard />
-      <MultilineTextFields/>
-     
-      <ContainedButton/>
+      <div style={{
+        display: "flex",
+      }}>
+        <div style={{
+          width: "700px"
+        }}>
+          <MultilineTextFields/>  
+        
+          <ContainedButton/>
+        </div>
+        <div>
+          <TicketCard/>
+        </div>
 
+      </div>
+     
+      
+
+      {/* <TicketCard /> */}
+      
      
    
       
