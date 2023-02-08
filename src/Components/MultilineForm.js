@@ -20,13 +20,20 @@ export default function MultilineTextFields() {
           maxRows={4}
           variant="standard"
         />
+       </div>
+    
+      <div>
         <TextField
-          id="standard-textarea"
+          id="standard-multiline-static"
           label="Description"
-          placeholder="Placeholder"
           multiline
+          rows={4}
+          defaultValue=""
           variant="standard"
         />
+       </div>
+
+       <div>
         <TextField
           id="standard-multiline-static"
           label="Acceptance Criteria"
