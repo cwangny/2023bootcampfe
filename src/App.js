@@ -48,7 +48,7 @@ function App() {
             {
               tickets.length !== 0 && (
                 <div style={{
-                  marginLeft: "25px",
+                  marginLeft: "40px",
                 }}>
                   <h1>Relevant Tickets</h1>
                   <p style={{ fontWeight: "lighter" }}>Click on a ticket to view more information</p>
