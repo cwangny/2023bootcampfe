@@ -9,21 +9,14 @@ import IconButton from '@mui/material/IconButton';
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="relative">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
             
-          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             BEST APP
           </Typography>
-          <Button color="inherit">Add Ticket</Button>
+          
+          <Button color="inherit">Settings</Button>
         </Toolbar>
       </AppBar>
     </Box>
