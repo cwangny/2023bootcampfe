@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState } from 'react';
@@ -21,34 +19,30 @@ const style = {
   p: 4,
 };
 
-export default function TicketCard({inputId, inputTitle, inputDesc, inputAccC, setModal}) {
+export default function TicketCard({inputId, inputTitle, inputDesc, inputAccC, inputPc}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <>
-    <Card sx={{ minWidth: 275, width: 600, marginLeft: 10, marginTop: 5, marginRight: 10, borderRadius: 5, cursor: 'pointer'}} onClick={handleOpen}> 
-      {/*  */}
-      <CardContent>
-        <div style= {{display:"flex"}}>
-          <div style={{display: "block"}}>
-            <Typography variant="h5" component="div">
-              Ticket ID: {inputId}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Title: {inputTitle}
-            </Typography>
-            <Typography variant="body2">
-              Description: {inputDesc}
-            </Typography>
+      <Card sx={{ minWidth: 275, width: 600, marginLeft: 10, marginTop: 5, marginRight: 10, borderRadius: 5, cursor: 'pointer'}} onClick={handleOpen}> 
+        <CardContent>
+          <div style= {{display:"flex"}}>
+            <div style={{display: "block"}}>
+              <Typography variant="h5" component="div">
+                {inputTitle}
+              </Typography>
+              <Typography variant="body2">
+                Description: {inputDesc}
+              </Typography>
+            </div>
+            <div style={{color : inputPc < 50 ? "red" : inputPc > 60 ? "green" : "orange", fontFamily : "fantasy", fontSize: "36px",marginTop: "30px",marginLeft: "10px"}}>
+              {`${inputPc}%`}
+            </div>
           </div>
-          <div style={{color : "green",fontFamily : "fantasy", fontSize: "36px",marginTop: "30px",marginLeft: "10px"}}>
-            90%
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
 
       <div>
         <Modal 
@@ -59,13 +53,19 @@ export default function TicketCard({inputId, inputTitle, inputDesc, inputAccC, s
         >
          <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Title: {inputTitle}
+              <b>Ticket ID</b>: {inputId}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Description: {inputDesc}
+              <b>Title</b>: {inputTitle}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Acceptance Criteria: {inputAccC}
+              <b>Description</b>: {inputDesc}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <b>Acceptance Criteria</b>: {inputAccC}
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <b>Contact</b>: <a href="https://www.google.com" target="_blank" rel="noreferrer">N/A</a>
             </Typography>
           </Box>
         </Modal>

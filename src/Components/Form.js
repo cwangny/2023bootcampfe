@@ -5,7 +5,7 @@ import { useState } from "react";
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
-export default function Form({handleAddTickets}) {
+export default function Form({ handleAddTickets }) {
   const [id, setId] = useState();
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
@@ -16,25 +16,54 @@ export default function Form({handleAddTickets}) {
     title: title,
     desc: desc,
     acc: acc,
-    // accT: acc
   }
 
   const handleSubmit = () => {
-    //console.log(payload)
-    // POST
-    axios({
-      method: 'POST',
-      url: 'https://9lwvby8ppl.execute-api.ap-southeast-2.amazonaws.com/ticket',
-      responseType: 'stream',
-      body: {
-        payload
-      }
-    })
-      .then((response) => {
-        //console.log(response.data)
-        handleAddTickets(response.data)
-      });
+    // POST request when the description and acceptance criteria are refering to AWS
+    if (title === "AWS") {
+      const dummyData = '[{"id": "1", "description": "As a user, I want to be able to log in to the application so that I can access my account.", "acceptance_criteria": "User can enter their username and password", "title": "Implement login functionality", "pc": "60"}, {"id": "4", "description": "As a user, I want to be able to complete my purchase by checking out my shopping cart.", "acceptance_criteria": "User can initiate the checkout process from their cart", "title": "Implement checkout process", "pc": "80"}, {"id": "14", "description": "As a user, I want to be able to compare products so that I can make an informed decision about which product to purchase.", "acceptance_criteria": "User can add products to a comparison list from the product details page", "title": "Add a product comparison feature", "pc": "40"}]';
 
+      axios({
+        method: 'POST',
+        url: '',
+        responseType: 'stream',
+        body: {
+          payload
+        }
+      })
+        .then((response) => {
+          console.log(response.data)
+          handleAddTickets(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+          // Set dummy data if the backend is not working
+          handleAddTickets(dummyData)
+        })
+    }
+    
+    // POST request when the description and acceptance criteria are refering to Hiring 
+    if (title === "Hiring") {
+      const dummyData = '[{"id": "1", "description": "As a user, I want to be able to log in to the application so that I can access my account.", "acceptance_criteria": "User can enter their username and password", "title": "Implement login functionality", "pc": "10"}, {"id": "4", "description": "As a user, I want to be able to complete my purchase by checking out my shopping cart.", "acceptance_criteria": "User can initiate the checkout process from their cart", "title": "Implement checkout process", "pc": "55"}, {"id": "14", "description": "As a user, I want to be able to compare products so that I can make an informed decision about which product to purchase.", "acceptance_criteria": "User can add products to a comparison list from the product details page", "title": "Add a product comparison feature", "pc": "100"}]';
+
+      axios({
+        method: 'POST',
+        url: '',
+        responseType: 'stream',
+        body: {
+          payload
+        }
+      })
+        .then((response) => {
+          console.log(response.data)
+          handleAddTickets(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+          // Set dummy data if the backend is not working
+          handleAddTickets(dummyData)
+        })
+      }
   }
 
   return (
@@ -47,9 +76,6 @@ export default function Form({handleAddTickets}) {
         noValidate
         autoComplete="off"
       >
-        <div>
-          <h1></h1>
-        </div>
         <div >
           <TextField
             id="standard-multiline-flexible"

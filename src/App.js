@@ -56,10 +56,8 @@ function App() {
               )
             }
             {
-
               tickets.map((obj, key) => {
-                // console.log(obj);
-                return <TicketCard inputId={obj.id} inputTitle={obj.title} inputDesc={obj.description} inputAccC={obj.acceptance_criteria} key={key}/>
+                return <TicketCard inputId={obj.id} inputTitle={obj.title} inputDesc={obj.description} inputAccC={obj.acceptance_criteria} inputPc={obj.pc} key={key}/>
               })
             }
           </div>
